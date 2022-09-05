@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="Font-awesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css" />
+    <link rel="icon" href="images/book.jpg">
+    <title>Book list</title>
+</head>
+<body>
+    <div class="container mt-4">
+       <h1 class=" display-4 text-center"> <strong><i class="fas fa-book-open text-warning"></i> JsBangladesh <span class="text-warning">Book</span> List</strong> </h1>
+       <form id="book-form" action="">
+       <div id="form-group">
+        <label for="title"><strong>Title:</strong></label>
+        <input id="title" type="text" class="form-control">
+       </div><br>
+       <div id="form-group">
+        <label for="author"><strong>Author:</strong></label>
+        <input id="author" type="text" class="form-control">
+       </div><br>
+       <div id="form-group">
+        <label for="year"><strong>Year:</strong></label>
+        <input id="year" type="text" class="form-control">
+       </div> <br>
+       <button class="btn btn-warning btn-block">ADD Book</button>
+       </form>
+       <table class=" table table-primary mt-5 text-center">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <tbody id="book-list"></tbody>
+    </table>
+</div>
+
+<script>
+    const title = document.querySelector('#title');
+const author = document.querySelector('#author');
+const year = document.querySelector('#year');
+const btn = document.querySelector('.btn');
+const bookList = document.querySelector('#book-list');
+
+btn.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  // Basic Validation
+  if (title.value == '' && author.value == '' && year.value == '') {
+    alert('Please input your information.');
+  }
+  else{
+    const newRow = document.createElement('tr');
+
+    // Creating new title
+    const newTitle = document.createElement('th');
+    newTitle.innerHTML = title.value;
+    newRow.appendChild(newTitle);
+
+    // Creating new author
+    const newAuthor = document.createElement('th');
+    newAuthor.innerHTML = author.value;
+    newRow.appendChild(newAuthor);
+
+    // Creating new Year
+    const newYear = document.createElement('th');
+    newYear.innerHTML = year.value;
+    newRow.appendChild(newYear);
+
+    // Displaying in UI
+    bookList.appendChild(newRow);
+  }
+})
+</script>
+</body>
+</html>
