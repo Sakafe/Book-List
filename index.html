@@ -51,7 +51,7 @@ btn.addEventListener('click', function (e) {
   e.preventDefault();
 
   // Basic Validation
-  if (title.value == '' && author.value == '' && year.value == '') {
+  if (title.value == '' || author.value == '' || year.value == '') {
     alert('Please input your information.');
   }
   else{
